@@ -1,5 +1,5 @@
 {
-  "name": "mongoose-trackable",
+  "name": "@continuengineers/mongoose-trackable",
   "version": "0.4.0",
   "description": "keeps track of when the document has been created, updated and optionally when some fields have been modified",
   "main": "index.js",
