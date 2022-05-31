@@ -111,11 +111,11 @@ describe('mongoose-trackable plugged into a mongoose.Schema', function() {
       .create({status: 'started'}, function(err, doc) {
         expect(doc).to.have.property('status', 'started')
         expect(doc).to.have.property('__updates')
-        expect(_.pluck(doc.__updates, 'changedTo')).to.be.eql(['started'])
+        expect(_.map(doc.__updates, 'changedTo')).to.be.eql(['started'])
 
         doc.set('status', 'closed')
         doc.save(function(err, doc) {
-          expect(_.pluck(doc.__updates, 'changedTo')).to.be.eql(['started', 'closed'])
+          expect(_.map(doc.__updates, 'changedTo')).to.be.eql(['started', 'closed'])
           done()
         })
       })
@@ -130,8 +130,8 @@ describe('mongoose-trackable plugged into a mongoose.Schema', function() {
       expect(doc).to.have.property('status', 'shipped')
       expect(doc).to.have.property('location', 'Chicago')
 
-      var changesToStatusField = _.chain(doc.__updates).filter(function(u) {return u.field === 'status'}).pluck('changedTo').valueOf()
-      var changesToLocationField = _.chain(doc.__updates).filter(function(u) {return u.field === 'location'}).pluck('changedTo').valueOf()
+      var changesToStatusField = _.chain(doc.__updates).filter(function(u) {return u.field === 'status'}).map('changedTo').valueOf()
+      var changesToLocationField = _.chain(doc.__updates).filter(function(u) {return u.field === 'location'}).map('changedTo').valueOf()
 
       expect(changesToStatusField).to.eql(['shipped'])
       expect(changesToLocationField).to.eql(['Chicago'])

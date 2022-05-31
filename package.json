@@ -1,6 +1,6 @@
 {
   "name": "mongoose-trackable",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "keeps track of when the document has been created, updated and optionally when some fields have been modified",
   "main": "index.js",
   "scripts": {
@@ -25,12 +25,12 @@
   },
   "homepage": "https://github.com/gabrielelana/mongoose-trackable",
   "devDependencies": {
-    "mocha": "~1.21.4",
-    "mongoose": "~3.8.14",
-    "chai": "~1.9.1",
-    "chai-datetime": "~1.2.0"
+    "mocha": "~10.0.0",
+    "mongoose": "~6.3.5",
+    "chai": "~4.3.6",
+    "chai-datetime": "~1.8.0"
   },
   "dependencies": {
-    "lodash": "~2.4.1"
+    "lodash": "~4.17.21"
   }
 }

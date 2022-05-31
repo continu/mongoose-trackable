@@ -14,7 +14,7 @@ module.exports = function(schema, options) {
     .chain()
     .concat(options.fieldsToTrack)
     .reject(function(field) {
-      return _(['__updates', options.createdAt, options.updatedAt]).contains(field)
+      return _(['__updates', options.createdAt, options.updatedAt]).includes(field)
     })
     .valueOf()
 
